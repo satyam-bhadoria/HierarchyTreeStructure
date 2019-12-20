@@ -1,0 +1,22 @@
+<template>
+    <c-heirarchy-record-edit-modal is-heirarchy-record-modal-open={editRecordData.isHeirarchyRecordModalOpen} record-id={editRecordData.recordId}
+        heirarchy-modal-mode={editRecordData.heirarchyModalMode} record-data={editRecordData.recordData} onmodalevent={handleModalEvent}></c-heirarchy-record-edit-modal>
+    <section>
+        <div class="hv-container">
+            <div class="hv-wrapper">
+                <template if:true={isInitialize}>
+                    <template for:each={tempheirarchy} for:item="heirarchy">
+                        <c-heirarchy class="hv-item" key={heirarchy.key} heirarchydata={data} mainheirarchy={heirarchy}
+                            oncustomdrag={handleCustomDrag} oncustomdrop={handleCustomDrop} oneditheirarchyrecord={handleEditHeirarchyRecord}
+                            oncreateheirarchyrecord={handleCreateHeirarchyRecord} ondeleteheirarchyrecord={handleDeleteHeirarchyRecord}></c-heirarchy>
+                    </template>
+                </template>
+            </div>
+        </div>
+        <div style="display: none;">
+            <lightning-record-edit-form object-api-name="Heirarchy__c" record-id={nullRecord} onsuccess={handleParentUpdateSuccess}>
+                <lightning-input-field field-name="Parent__c"></lightning-input-field>
+            </lightning-record-edit-form>
+        </div>
+    </section>
+</template>

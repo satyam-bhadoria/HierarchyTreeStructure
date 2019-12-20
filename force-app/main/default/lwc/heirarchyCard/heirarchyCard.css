@@ -1,0 +1,31 @@
+.card-container{
+    padding: 10px;
+}
+.card-title{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start
+}
+.card-title .card-avatar{
+    width: 48px;
+    margin-right: 5px;
+}
+.card-data{
+    width: calc(100% - 53px);
+}
+.card-name{
+    white-space: nowrap;
+    font-size: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.card-role{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px
+}
+.card-footer{
+    display: flex;
+    justify-content: space-between;
+}

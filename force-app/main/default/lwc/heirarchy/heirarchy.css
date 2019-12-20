@@ -1,0 +1,59 @@
+.simple-card {
+    margin: 0;
+    width: 200px;
+    box-shadow: 0 3px 6px rgba(204, 131, 103, 0.22);
+}
+:host.hv-item {
+    display: flex;
+    flex-direction: column;
+    margin: auto; 
+}
+:host.hv-item .hv-item-data {
+    margin-bottom: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center; 
+}
+:host.hv-item .hv-item-parent:after {
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 25px;
+    bottom: -25px;
+    left: calc(50% - 1px);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+:host.hv-item .hv-item-children {
+    display: flex;
+    justify-content: center; 
+}
+:host.hv-item .hv-item-children .hv-item-child {
+    padding: 0 15px;
+    position: relative; 
+}
+:host.hv-item .hv-item-children .hv-item-child:before,
+:host.hv-item .hv-item-children .hv-item-child:not(:only-child):after {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    left: 0;
+}
+:host.hv-item .hv-item-children .hv-item-child:before {
+    left: calc(50% - 1px);
+    top: -27px;
+    width: 2px;
+    height: 27px; 
+}
+
+:host.hv-item .hv-item-children .hv-item-child:after {
+    top: -27px;
+    height: 2px;
+    width: 100%; 
+}
+:host.hv-item .hv-item-children .hv-item-child:first-child:after {
+    left: calc(50% - 1px);
+    width: calc(50% + 1px); 
+}
+:host.hv-item .hv-item-children .hv-item-child:last-child:after {
+    width: calc(50% + 1px); 
+}

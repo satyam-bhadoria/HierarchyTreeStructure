@@ -1,0 +1,19 @@
+<template>
+    <div class={dynamicclass}>
+        <div class="simple-card" ondrop={drop} ondragover={allowDrop} draggable="true" ondragstart={drag} data-id={mainheirarchy.key}>
+            <c-heirarchy-card heirarchy-data={data} oncreateheirarchyrecord={handleCreateHeirarchyRecord} oneditheirarchyrecord={handleEditHeirarchyRecord}
+                ondeleteheirarchyrecord={handleDeleteHeirarchyRecord}></c-heirarchy-card>
+        </div>
+    </div>
+    <template if:true={ischildpresent}>
+        <div class="hv-item-children">
+            <template for:each={tempheirarchy} for:item="heirarchy">
+                <div class="hv-item-child" key={heirarchy.key}>
+                    <c-heirarchy class="hv-item" heirarchydata={heirarchydata} mainheirarchy={heirarchy}
+                        oncustomdrag={handleCustomDrag} oncustomdrop={handleCustomDrop} oncreateheirarchyrecord={handleCreateHeirarchyRecord} 
+                        oneditheirarchyrecord={handleEditHeirarchyRecord} ondeleteheirarchyrecord={handleDeleteHeirarchyRecord}></c-heirarchy>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name_Initials__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( FIND(&#39; &#39;,TRIM(Name))==0 || FIND(&#39; &#39;,TRIM(Name),FIND(&#39; &#39;,TRIM(Name),1)+1)==0,
+    LEFT(TRIM(Name),1),
+    
+    TRIM(LEFT(TRIM(Name)+&#39; &#39;, FIND(&#39; &#39;,TRIM(Name )+&#39; &#39;,
+    FIND(&#39; &#39;,TRIM(Name )+&#39; &#39;,
+    FIND(&#39; &#39;,TRIM(Name )+&#39; &#39;,1)+1)+1))))</formula>
+    <label>Name Initials</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

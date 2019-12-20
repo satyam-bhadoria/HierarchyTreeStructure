@@ -1,0 +1,22 @@
+<template>
+    <div class="card-container">
+        <div class="card-title">
+            <div class="card-avatar">
+                <lightning-avatar variant="circle" size="large" src={heirarchyData.Image__c} initials={heirarchyData.Name_Initials__c} fallback-icon-name="standard:person_account" alternative-text={heirarchyData.Role__c}></lightning-avatar>
+            </div>
+            <div class="card-data">
+                <div class="card-name">{heirarchyData.Name}</div>
+                <div class="card-role">{heirarchyData.Role__c}</div>
+            </div>
+        </div>
+        <div class="card-footer slds-m-top_x-small">
+            <div>
+                <lightning-icon class="slds-text-link_reset slds-p-horizontal_xx-small" icon-name="utility:new" size="x-small" onclick={newRecord} alternative-text="New"></lightning-icon>
+            </div>
+            <div>
+                <lightning-icon class="slds-text-link_reset slds-p-horizontal_xx-small" icon-name="utility:delete" size="x-small" onclick={deleteRecord} alternative-text="Delete"></lightning-icon>
+                <lightning-icon class="slds-text-link_reset slds-p-horizontal_xx-small" icon-name="utility:edit" size="x-small" onclick={editRecord} alternative-text="Edit"></lightning-icon>
+            </div>
+        </div>
+    </div>
+</template>

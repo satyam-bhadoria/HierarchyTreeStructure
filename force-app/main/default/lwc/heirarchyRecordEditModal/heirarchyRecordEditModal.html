@@ -1,0 +1,44 @@
+<template>
+    <div class="slds-is-fixed new-button slds-text-link_reset">
+        <div>
+            <lightning-icon icon-name="action:new" size="medium" alternative-text="New" onclick={createNewHeirarchyRecord}></lightning-icon>
+        </div>
+    </div>
+    <template if:true={isHeirarchyRecordModalOpen}>
+        <div role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header slds-modal__header_empty">
+                    <lightning-button-icon class="slds-modal__close" icon-name="utility:close" variant="bare-inverse" size="large" alternative-text="Close" onclick={hideHeirarchyModal}></lightning-button-icon>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-record-edit-form object-api-name="Heirarchy__c" record-id={recordId} onsuccess={handleSuccess}>
+                        <lightning-messages></lightning-messages>
+                        <div class="slds-is-relative record-form-spinner-holder">
+                            <div class="slds-grid slds-gutters_small">
+                                <div class="slds-col slds-has-flexi-truncate">
+                                    <lightning-input-field field-name="Name" value={recordData.Name}></lightning-input-field>
+                                </div>
+                                <div class="slds-col slds-has-flexi-truncate">
+                                    <lightning-input-field field-name="Role__c" value={recordData.Role__c}></lightning-input-field>
+                                </div>
+                            </div>
+                            <div class="slds-grid slds-gutters_small">
+                                <div class="slds-col slds-has-flexi-truncate">
+                                    <lightning-input-field field-name="image__c" value={recordData.Image__c}></lightning-input-field>
+                                </div>
+                                <div class="slds-col slds-has-flexi-truncate">
+                                    <lightning-input-field field-name="Parent__c" value={recordData.Parent__c}></lightning-input-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-align_absolute-center slds-p-around_medium">
+                            <lightning-button class="slds-m-around_xx-small" variant="neutral" label="Cancel" onclick={hideHeirarchyModal}></lightning-button>
+                            <lightning-button type="submit" class="slds-m-around_xx-small" variant="brand" label="Save"></lightning-button>
+                        </div>
+                    </lightning-record-edit-form>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>
